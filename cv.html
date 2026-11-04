@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Faqihna Fiddin Alfarizi | DevOps & Cloud Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #060a12;
+            color: #111;
+            line-height: 1.5;
+            padding: 76px 16px 40px;
+        }
+
+        .cv-toolbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.35);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            color: #fff;
+            font-family: monospace;
+        }
+
+        .cv-toolbar-btn {
+            background: #3b82f6;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-family: monospace;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .cv-toolbar-btn.secondary {
+            background: #1e293b;
+            color: #f8fafc;
+        }
+
+        .cv-toolbar-btn:hover {
+            background: #10b981;
+            color: #042f2e;
+        }
+
+        .cv-sheet {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 48px 54px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .cv-header {
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .cv-name {
+            font-size: 1.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .cv-role {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .cv-contact {
+            font-size: 0.86rem;
+            color: #222;
+        }
+
+        .cv-contact a {
+            color: #1a0dab;
+            text-decoration: underline;
+        }
+
+        .cv-section {
+            margin-bottom: 20px;
+        }
+
+        .cv-section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 1.5px solid #555;
+            padding-bottom: 3px;
+            margin-bottom: 10px;
+        }
+
+        .cv-summary {
+            font-size: 0.92rem;
+            text-align: left;
+        }
+
+        .skills-list {
+            font-size: 0.92rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .exp-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .exp-sub {
+            font-size: 0.92rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .cv-ul {
+            padding-left: 22px;
+            font-size: 0.91rem;
+        }
+
+        .cv-ul li {
+            margin-bottom: 4px;
+        }
+
+        .edu-block {
+            margin-bottom: 12px;
+            font-size: 0.92rem;
+        }
+
+        .edu-title {
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+            .cv-toolbar {
+                display: none !important;
+            }
+            .cv-sheet {
+                box-shadow: none;
+                padding: 20px 28px;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .cv-sheet {
+                padding: 28px 20px;
+            }
+            .exp-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-toolbar">
+        <a href="index.html" class="cv-toolbar-btn secondary">
+            <i class="fa-solid fa-arrow-left"></i> BACK TO PORTFOLIO
+        </a>
+        <button onclick="window.print()" class="cv-toolbar-btn">
+            <i class="fa-solid fa-print"></i> PRINT / SAVE AS PDF
+        </button>
+    </div>
+
+    <main class="cv-sheet">
+        <header class="cv-header">
+            <h1 class="cv-name">FAQIHNA FIDDIN ALFARIZI</h1>
+            <div class="cv-role">DevOps Engineer | Cloud Engineer</div>
+            <div class="cv-contact">
+                Jakarta, Indonesia |
+                <a href="mailto:faqihnafiddin12@gmail.com">faqihnafiddin12@gmail.com</a> |
+                <a href="https://wa.me/628976802353">08976802353</a> |
+                <a href="https://linkedin.com/in/faqihnafiddinalfarizi" target="_blank">linkedin.com/in/faqihnafiddinalfarizi</a> |
+                <a href="https://github.com/faqihnafiddin" target="_blank">github.com/faqihnafiddin</a>
+            </div>
+        </header>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">PROFESSIONAL SUMMARY</h2>
+            <p class="cv-summary">
+                <strong>DevOps Engineer</strong> working mostly with Kubernetes across AWS (EKS), GCP (GKE), and Tencent Cloud (TKE). Day-to-day, I focus on building CI/CD pipelines, automating releases for smooth and reliable deployments, and keeping security checks in place. I also spend time on monitoring and system observability so production issues are caught and fixed quickly.
+            </p>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">TECHNICAL SKILLS</h2>
+            <div class="skills-list">
+                <div><strong>Cloud Platforms:</strong> Google Cloud Platform (GKE), Amazon Web Services (EC2, IAM, VPC), Tencent Cloud (TKE)</div>
+                <div><strong>Containers &amp; Orchestration:</strong> Docker, Docker Compose, Kubernetes (EKS, GKE, TKE, K3s)</div>
+                <div><strong>CI/CD &amp; IaC:</strong> Git, GitLab, Docker Hub, CI/CD Pipelines, Azure DevOps Pipeline, GitHub Actions</div>
+                <div><strong>Operating Systems:</strong> Linux, Ubuntu</div>
+                <div><strong>Monitoring &amp; Logging:</strong> Prometheus, Grafana</div>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">WORK EXPERIENCE</h2>
+            <div class="exp-row">
+                <span>PT Link Net Tbk</span>
+                <span style="font-weight: 400;">Tangerang, Indonesia &bull; Oktober 2026 - present</span>
+            </div>
+            <div class="exp-sub">DevOps Engineer</div>
+            <ul class="cv-ul">
+                <li>Quickly resolved live pod and container errors, such as image pull failures and unexpected application crashes.</li>
+                <li>Maintained Azure DevOps CI/CD pipelines to ensure smooth and automated application deployments.</li>
+                <li>Secured sensitive credentials and keys using Azure Key Vault and External Secrets.</li>
+                <li>Ensured high availability and stability for production Kubernetes clusters across GKE, EKS, and TKE.</li>
+                <li>Handled daily maintenance tasks, including zero-downtime rolling updates, deployment validation, and pod restarts.</li>
+                <li>Managed core Kubernetes resources, including Deployments, Services, Ingress, and configurations (ConfigMaps and Secrets).</li>
+            </ul>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">EDUCATION</h2>
+            <div class="edu-block">
+                <div class="edu-title">UNIVERSITAS BINA SARANA INFORMATIKA</div>
+                <div class="edu-degree">Associate Degree in Information Systems</div>
+                <div>Jakarta, Indonesia &nbsp;|&nbsp; August 2018 – November 2021</div>
+                <div>GPA: 3.66 / 4.00</div>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">COURSES &amp; TRAINING</h2>
+            <div class="edu-block">
+                <div><strong>DIGITAL SKOLA</strong> &nbsp;|&nbsp; Cloud Engineer Training Program</div>
+                <div>Jakarta, Indonesia &nbsp;|&nbsp; Juni 2026 – Juli 2026</div>
+            </div>
+            <div class="edu-block">
+                <div><strong>ORBIT FUTURE ACADEMY</strong> &nbsp;|&nbsp; AWS re/Start Program</div>
+                <div>Jakarta, Indonesia &nbsp;|&nbsp; Juli 2026 – September 2026</div>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">CERTIFICATIONS &amp; CREDENTIALS</h2>
+            <ul class="cv-ul">
+                <li>Cloud Engineer Certification – Digital Skola</li>
+                <li>AWS re/Start Graduation Badge – Amazon Web Services</li>
+            </ul>
+        </section>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">CAREER INTERESTS</h2>
+            <div style="font-size: 0.92rem;">
+                Cloud Engineer | DevOps Engineer | Junior DevOps Engineer
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
+

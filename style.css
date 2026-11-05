@@ -4,32 +4,32 @@
    ========================================================================== */
 
 :root {
-    /* Dark Mode (Default: Deep Cloud Control Plane) */
-    --bg-canvas: #060a12;
-    --bg-surface: rgba(15, 23, 42, 0.72);
-    --bg-surface-elevated: rgba(30, 41, 59, 0.65);
-    --bg-surface-solid: #0f172a;
-    --border-subtle: rgba(148, 163, 184, 0.14);
-    --border-highlight: rgba(59, 130, 246, 0.45);
+    /* Dark Mode (Default: Matte Architectural Carbon / Graphite) */
+    --bg-canvas: #0d0e11;
+    --bg-surface: rgba(20, 22, 27, 0.88);
+    --bg-surface-elevated: #1a1d24;
+    --bg-surface-solid: #14161b;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.2);
 
-    --text-main: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    --text-main: #f4f4f6;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
 
-    /* Cloud & Telemetry Accent Tokens */
-    --k8s-blue: #3b82f6;
-    --k8s-blue-glow: rgba(59, 130, 246, 0.22);
+    /* Clean Technical Accent Tokens (No Neon Purple Clichés) */
+    --k8s-blue: #2563eb;
+    --k8s-blue-glow: rgba(37, 99, 235, 0.14);
     --telemetry-emerald: #10b981;
-    --emerald-glow: rgba(16, 185, 129, 0.2);
-    --cloud-amber: #f59e0b;
-    --cloud-purple: #8b5cf6;
+    --emerald-glow: rgba(16, 185, 129, 0.14);
+    --cloud-amber: #d97706;
+    --cloud-purple: #64748b;
 
     /* Shadows & Radii */
-    --shadow-card: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
-    --shadow-dock: 0 12px 32px -4px rgba(0, 0, 0, 0.55);
-    --radius-xl: 20px;
-    --radius-lg: 14px;
-    --radius-md: 10px;
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    --shadow-dock: 0 10px 30px -6px rgba(0, 0, 0, 0.65);
+    --radius-xl: 14px;
+    --radius-lg: 10px;
+    --radius-md: 8px;
     --radius-sm: 6px;
 
     /* Typography */
@@ -39,25 +39,25 @@
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light Mode Console Theme */
+/* Light Mode Console Theme (Warm Editorial Stone / Paper) */
 html[data-theme="light"] {
-    --bg-canvas: #f8fafc;
-    --bg-surface: rgba(255, 255, 255, 0.88);
-    --bg-surface-elevated: #f1f5f9;
+    --bg-canvas: #f4f3ef;
+    --bg-surface: rgba(255, 255, 255, 0.92);
+    --bg-surface-elevated: #eae8e1;
     --bg-surface-solid: #ffffff;
-    --border-subtle: rgba(15, 23, 42, 0.1);
-    --border-highlight: rgba(37, 99, 235, 0.4);
+    --border-subtle: rgba(24, 24, 27, 0.1);
+    --border-highlight: rgba(24, 24, 27, 0.25);
 
-    --text-main: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
+    --text-main: #18181b;
+    --text-secondary: #52525b;
+    --text-muted: #71717a;
 
-    --k8s-blue: #2563eb;
-    --k8s-blue-glow: rgba(37, 99, 235, 0.12);
-    --telemetry-emerald: #059669;
-    --emerald-glow: rgba(5, 150, 105, 0.12);
-    --shadow-card: 0 12px 30px -10px rgba(15, 23, 42, 0.08);
-    --shadow-dock: 0 10px 25px -5px rgba(15, 23, 42, 0.1);
+    --k8s-blue: #1d4ed8;
+    --k8s-blue-glow: rgba(29, 78, 216, 0.1);
+    --telemetry-emerald: #047857;
+    --emerald-glow: rgba(4, 120, 87, 0.1);
+    --shadow-card: 0 1px 3px rgba(24, 24, 27, 0.06);
+    --shadow-dock: 0 8px 24px -6px rgba(24, 24, 27, 0.1);
 }
 
 /* ==========================================================================
@@ -117,7 +117,7 @@ button {
 }
 
 /* ==========================================================================
-   AMBIENT MESH & DOT MATRIX BACKGROUND
+   ARCHITECTURAL BLUEPRINT GRID & MATTE GRAIN BACKGROUND (NO AI BLOBS)
    ========================================================================== */
 .ambient-bg {
     position: fixed;
@@ -125,50 +125,48 @@ button {
     pointer-events: none;
     z-index: -1;
     overflow: hidden;
+    background-color: var(--bg-canvas);
 }
 
-.mesh-blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.35;
-}
-
-html[data-theme="light"] .mesh-blob {
-    opacity: 0.18;
-}
-
-.blob-blue {
-    top: -12%;
-    right: 5%;
-    width: 550px;
-    height: 550px;
-    background: radial-gradient(circle, var(--k8s-blue), transparent 70%);
-}
-
-.blob-emerald {
-    top: 38%;
-    left: -10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, var(--telemetry-emerald), transparent 70%);
-}
-
-.blob-indigo {
-    bottom: -10%;
-    right: 15%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, var(--cloud-purple), transparent 70%);
-}
-
-.dot-matrix {
+/* Soft neutral studio light from the top center (no neon colors) */
+.bg-zenith-light {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(148, 163, 184, 0.14) 1px, transparent 1px);
-    background-size: 28px 28px;
-    mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 60%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 60%, transparent 100%);
+    background: radial-gradient(ellipse 90% 42% at 50% -5%, rgba(255, 255, 255, 0.045), transparent 72%);
+}
+
+html[data-theme="light"] .bg-zenith-light {
+    background: radial-gradient(ellipse 90% 42% at 50% -5%, rgba(255, 255, 255, 0.85), transparent 72%);
+}
+
+/* Fine technical CAD / architectural grid lines */
+.bg-arch-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+    background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+    mask-image: radial-gradient(ellipse 95% 75% at 50% 25%, #000 35%, transparent 95%);
+    -webkit-mask-image: radial-gradient(ellipse 95% 75% at 50% 25%, #000 35%, transparent 95%);
+}
+
+html[data-theme="light"] .bg-arch-grid {
+    background-image:
+        linear-gradient(to right, rgba(24, 24, 27, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(24, 24, 27, 0.05) 1px, transparent 1px),
+        linear-gradient(to right, rgba(24, 24, 27, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(24, 24, 27, 0.02) 1px, transparent 1px);
+}
+
+/* Tactile Matte Film Grain Overlay */
+.bg-matte-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.028;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* ==========================================================================
@@ -370,14 +368,14 @@ html[data-theme="light"] .mesh-blob {
 .brand-icon {
     width: 36px;
     height: 36px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--k8s-blue), var(--cloud-purple));
-    color: #ffffff;
+    border-radius: 9px;
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-highlight);
+    color: var(--text-main);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.05rem;
-    box-shadow: 0 4px 12px var(--k8s-blue-glow);
+    font-size: 1rem;
 }
 
 .brand-meta {
@@ -485,17 +483,15 @@ html[data-theme="light"] .mesh-blob {
     bottom: 3px;
     left: 3px;
     width: calc(50% - 3px);
-    background: linear-gradient(135deg, var(--k8s-blue), var(--cloud-purple));
+    background: var(--text-main);
     border-radius: 999px;
-    box-shadow: 0 2px 10px var(--k8s-blue-glow);
-    transition: transform 0.28s var(--ease-out);
+    transition: transform 0.25s var(--ease-out);
     z-index: 0;
 }
 
 html[data-lang="id"] .lang-glider {
     transform: translateX(100%);
-    background: linear-gradient(135deg, var(--telemetry-emerald), var(--k8s-blue));
-    box-shadow: 0 2px 10px var(--emerald-glow);
+    background: var(--text-main);
 }
 
 .lang-opt {
@@ -518,7 +514,7 @@ html[data-lang="id"] .lang-glider {
 }
 
 .lang-opt.active {
-    color: #ffffff;
+    color: var(--bg-canvas);
 }
 
 .icon-btn {
@@ -648,15 +644,16 @@ html[data-lang="id"] .lang-glider {
 }
 
 .text-gradient {
-    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #a855f7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-main);
+    text-decoration: underline;
+    text-decoration-color: rgba(37, 99, 235, 0.55);
+    text-underline-offset: 6px;
+    text-decoration-thickness: 3px;
 }
 
 .text-gradient-emerald {
-    background: linear-gradient(135deg, #34d399 0%, #10b981 60%, #0ea5e9 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-secondary);
+    font-weight: 700;
 }
 
 .hero-description {
@@ -2005,8 +2002,12 @@ html[data-lang="id"] .lang-glider {
    CTA BANNER & FOOTER
    ========================================================================== */
 .cta-banner {
-    background: linear-gradient(135deg, rgba(30, 58, 138, 0.45), rgba(6, 78, 59, 0.4));
-    border: 1px solid var(--border-highlight);
+    background-color: var(--bg-surface-solid);
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 32px 32px;
+    border: 1px solid var(--border-subtle);
     border-radius: var(--radius-xl);
     padding: 40px 36px;
     display: flex;

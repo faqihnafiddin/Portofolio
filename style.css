@@ -72,6 +72,9 @@ html[data-theme="light"] {
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -79,8 +82,17 @@ body {
     background-color: var(--bg-canvas);
     color: var(--text-main);
     line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
+    position: relative;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 ::selection {
@@ -98,6 +110,7 @@ button {
 }
 
 .container {
+    width: 100%;
     max-width: 1240px;
     margin: 0 auto;
     padding: 0 24px;
@@ -580,14 +593,22 @@ html[data-lang="id"] .lang-glider {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 44px;
     align-items: center;
+    width: 100%;
+}
+
+.hero-content,
+.hero-visualizer {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
 }
 
 @media (min-width: 1024px) {
     .hero-grid {
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     }
 }
 
@@ -603,6 +624,7 @@ html[data-lang="id"] .lang-glider {
     font-size: 0.8rem;
     color: var(--text-secondary);
     margin-bottom: 24px;
+    max-width: 100%;
 }
 
 .status-indicator {
@@ -623,7 +645,6 @@ html[data-lang="id"] .lang-glider {
     line-height: 1.12;
     letter-spacing: -0.03em;
     margin-bottom: 20px;
-    text-transform: capitalize;
 }
 
 .text-gradient {
@@ -760,6 +781,9 @@ html[data-lang="id"] .lang-glider {
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-card);
     overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .cp-header {
@@ -1105,13 +1129,14 @@ html[data-lang="id"] .lang-glider {
 
 .bento-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
+    width: 100%;
 }
 
 @media (min-width: 960px) {
     .bento-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     .bento-card.span-2 {
         grid-column: span 2;
@@ -1128,6 +1153,10 @@ html[data-lang="id"] .lang-glider {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
     transition: border-color 0.25s ease, transform 0.25s ease;
 }
 
@@ -1306,6 +1335,14 @@ html[data-lang="id"] .lang-glider {
     font-size: 0.74rem;
     color: #e2e8f0;
     overflow-x: auto;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.code-snippet pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
 }
 
 .c-key {
@@ -1389,18 +1426,28 @@ html[data-lang="id"] .lang-glider {
    ========================================================================== */
 .exp-showcase {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
     background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-xl);
     padding: 28px;
     box-shadow: var(--shadow-card);
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.exp-sidebar,
+.exp-content-area {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
 }
 
 @media (min-width: 960px) {
     .exp-showcase {
-        grid-template-columns: 320px 1fr;
+        grid-template-columns: 320px minmax(0, 1fr);
     }
 }
 
@@ -1625,13 +1672,14 @@ html[data-lang="id"] .lang-glider {
    ========================================================================== */
 .projects-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
+    width: 100%;
 }
 
 @media (min-width: 900px) {
     .projects-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
 }
 
@@ -1643,6 +1691,10 @@ html[data-lang="id"] .lang-glider {
     box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
     transition: border-color 0.25s ease;
 }
 
@@ -1803,13 +1855,14 @@ html[data-lang="id"] .lang-glider {
    ========================================================================== */
 .credentials-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
+    width: 100%;
 }
 
 @media (min-width: 900px) {
     .credentials-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
@@ -1819,6 +1872,10 @@ html[data-lang="id"] .lang-glider {
     border-radius: var(--radius-xl);
     padding: 24px;
     box-shadow: var(--shadow-card);
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .cred-card-header {
@@ -2172,7 +2229,7 @@ html[data-lang="id"] .lang-glider {
 
     /* Hero Section Mobile Polish */
     .hero-section {
-        padding: 88px 0 36px;
+        padding: 96px 0 36px;
     }
 
     .hero-grid {
@@ -2195,6 +2252,7 @@ html[data-lang="id"] .lang-glider {
         font-size: 0.92rem;
         line-height: 1.65;
         margin-bottom: 22px;
+        max-width: 100%;
     }
 
     /* Thumb-Friendly Full-Width Hero Buttons on Phone */
@@ -2350,27 +2408,25 @@ html[data-lang="id"] .lang-glider {
         line-height: 1.5;
     }
 
-    /* Swipeable Filter Pills on Mobile */
+    /* 2x2 Grid Filter Pills on Mobile (Prevents Horizontal Grid Blowout) */
     .skill-filter-pills {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-bottom: 4px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-    }
-
-    .skill-filter-pills::-webkit-scrollbar {
-        display: none;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
     }
 
     .s-pill {
         white-space: nowrap;
-        flex-shrink: 0;
-        padding: 6px 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        padding: 8px 6px;
+        font-size: 0.68rem;
     }
 
     .arsenal-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     /* Experience & Runbooks Mobile */
@@ -2526,8 +2582,16 @@ html[data-lang="id"] .lang-glider {
     }
 }
 
-@media (max-width: 380px) {
-    .brand-meta {
+@media (max-width: 420px) {
+    .brand-role {
         display: none;
+    }
+
+    .brand-name {
+        font-size: 0.78rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 115px;
     }
 }

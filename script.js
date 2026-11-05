@@ -753,9 +753,10 @@ revealEls.forEach(el => revealObserver.observe(el));
 
 const sections = document.querySelectorAll('section[id]');
 const navAnchors = document.querySelectorAll('.dock-link');
+const mobileNavAnchors = document.querySelectorAll('.m-nav-item[href^="#"]');
 
 window.addEventListener('scroll', () => {
-    let currentId = '';
+    let currentId = 'overview';
     sections.forEach(sec => {
         const top = sec.offsetTop - 160;
         if (window.scrollY >= top) {
@@ -763,6 +764,9 @@ window.addEventListener('scroll', () => {
         }
     });
     navAnchors.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === `#${currentId}`);
+    });
+    mobileNavAnchors.forEach(a => {
         a.classList.toggle('active', a.getAttribute('href') === `#${currentId}`);
     });
 });

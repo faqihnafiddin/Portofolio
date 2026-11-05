@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -45,55 +45,60 @@
         <div class="cmd-modal">
             <div class="cmd-header">
                 <i class="fa-solid fa-terminal"></i>
-                <input type="text" id="cmdSearch" placeholder="Type a command or search sections (e.g. k8s, deploy, cv, email)..." autocomplete="off">
+                <input type="text" id="cmdSearch" data-i18n-placeholder="cmd.placeholder" placeholder="Type a command or search sections (e.g. k8s, deploy, cv, id/en)..." autocomplete="off">
                 <kbd class="kbd-esc" id="cmdClose">ESC</kbd>
             </div>
             <div class="cmd-list" id="cmdList">
-                <div class="cmd-group-label">QUICK ACTIONS</div>
+                <div class="cmd-group-label" data-i18n="cmd.quick">QUICK ACTIONS</div>
                 <button class="cmd-item" data-action="deploy">
                     <i class="fa-solid fa-rocket"></i>
-                    <span>Trigger Live Zero-Downtime Rollout Simulation</span>
+                    <span data-i18n="cmd.deploy">Trigger Live Zero-Downtime Rollout Simulation</span>
                     <kbd>Sim</kbd>
+                </button>
+                <button class="cmd-item" data-action="lang">
+                    <i class="fa-solid fa-language"></i>
+                    <span data-i18n="cmd.lang">Switch Language (Bahasa Indonesia / English)</span>
+                    <kbd>EN/ID</kbd>
                 </button>
                 <button class="cmd-item" data-action="copy-email">
                     <i class="fa-regular fa-copy"></i>
-                    <span>Copy Email: faqihnafiddin12@gmail.com</span>
+                    <span data-i18n="cmd.email">Copy Email: faqihnafiddin12@gmail.com</span>
                     <kbd>Copy</kbd>
                 </button>
                 <button class="cmd-item" data-action="open-cv">
                     <i class="fa-solid fa-file-pdf"></i>
-                    <span>Open Printable / ATS Resume (CV)</span>
+                    <span data-i18n="cmd.cv">Open Printable / ATS Resume (CV)</span>
                     <kbd>PDF</kbd>
                 </button>
                 <button class="cmd-item" data-action="theme">
                     <i class="fa-solid fa-circle-half-stroke"></i>
-                    <span>Toggle Dark / Light Console Theme</span>
+                    <span data-i18n="cmd.theme">Toggle Dark / Light Console Theme</span>
                     <kbd>Theme</kbd>
                 </button>
-                <div class="cmd-group-label">NAVIGATE CONTROL PLANE</div>
+                <div class="cmd-group-label" data-i18n="cmd.nav">NAVIGATE CONTROL PLANE</div>
                 <button class="cmd-item" data-scroll="#overview">
                     <i class="fa-solid fa-compass"></i>
-                    <span>Overview &amp; Multi-Cloud Topology</span>
+                    <span data-i18n="cmd.nav.overview">Overview &amp; Multi-Cloud Topology</span>
                     <kbd>#overview</kbd>
                 </button>
                 <button class="cmd-item" data-scroll="#bento">
                     <i class="fa-solid fa-table-cells-large"></i>
-                    <span>Engineering Architecture &amp; Live CI/CD Bento</span>
+                    <span data-i18n="cmd.nav.bento">Engineering Architecture &amp; Live CI/CD Bento</span>
                     <kbd>#bento</kbd>
                 </button>
                 <button class="cmd-item" data-scroll="#experience">
                     <i class="fa-solid fa-briefcase"></i>
-                    <span>Work Experience &amp; Runbooks (PT Link Net Tbk)</span>
+                    <span data-i18n="cmd.nav.exp">Work Experience &amp; Runbooks (PT Link Net Tbk)</span>
                     <kbd>#experience</kbd>
                 </button>
                 <button class="cmd-item" data-scroll="#projects">
                     <i class="fa-solid fa-diagram-project"></i>
-                    <span>Cloud Infrastructure Blueprints &amp; Projects</span>
+                    <span data-i18n="cmd.nav.projects">Cloud Infrastructure Blueprints &amp; Projects</span>
                     <kbd>#projects</kbd>
                 </button>
                 <button class="cmd-item" data-scroll="#credentials">
                     <i class="fa-solid fa-award"></i>
-                    <span>Education, Bootcamps &amp; Certifications</span>
+                    <span data-i18n="cmd.nav.cred">Education, Bootcamps &amp; Certifications</span>
                     <kbd>#credentials</kbd>
                 </button>
             </div>
@@ -109,31 +114,45 @@
                 </div>
                 <div class="brand-meta">
                     <span class="brand-name">Faqihna F. Alfarizi</span>
-                    <span class="brand-role">Cloud &amp; DevOps</span>
+                    <span class="brand-role" data-i18n="nav.role">Cloud &amp; DevOps</span>
                 </div>
             </a>
 
             <div class="dock-links" id="dockLinks">
-                <a href="#overview" class="dock-link active">Overview</a>
-                <a href="#bento" class="dock-link">Architecture</a>
-                <a href="#experience" class="dock-link">Experience</a>
-                <a href="#projects" class="dock-link">Blueprints</a>
-                <a href="#credentials" class="dock-link">Credentials</a>
+                <a href="#overview" class="dock-link active" data-i18n="nav.overview">Overview</a>
+                <a href="#bento" class="dock-link" data-i18n="nav.arch">Architecture</a>
+                <a href="#experience" class="dock-link" data-i18n="nav.exp">Experience</a>
+                <a href="#projects" class="dock-link" data-i18n="nav.projects">Blueprints</a>
+                <a href="#credentials" class="dock-link" data-i18n="nav.cred">Credentials</a>
             </div>
 
             <div class="dock-actions">
                 <button class="cmd-trigger" id="cmdTrigger" title="Open Command Palette">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <span class="cmd-trigger-text">Command</span>
+                    <span class="cmd-trigger-text" data-i18n="nav.cmd">Command</span>
                     <kbd>Ctrl K</kbd>
                 </button>
+
+                <!-- Custom Cloud-Console Dual Language Switcher (EN / ID) -->
+                <div class="lang-switch-pill" id="langSwitchPill" role="group" aria-label="Language Switcher" title="Switch Language (English / Bahasa Indonesia)">
+                    <span class="lang-glider" id="langGlider"></span>
+                    <button type="button" class="lang-opt active" data-lang-opt="en">
+                        <span class="lang-code">EN</span>
+                    </button>
+                    <button type="button" class="lang-opt" data-lang-opt="id">
+                        <span class="lang-code">ID</span>
+                    </button>
+                </div>
+
                 <button class="icon-btn" id="themeBtn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
                     <i class="fa-solid fa-moon" id="themeIcon"></i>
                 </button>
+
                 <a href="#contact" class="dock-cta">
                     <span class="pulse-dot"></span>
-                    <span>Hire / Connect</span>
+                    <span data-i18n="nav.cta">Hire / Connect</span>
                 </a>
+
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -151,16 +170,16 @@
                 <div class="hero-content reveal">
                     <div class="status-ribbon">
                         <span class="status-indicator"></span>
-                        <span class="status-text">DevOps Engineer @ <strong>PT Link Net Tbk</strong></span>
+                        <span class="status-text" data-i18n-html="hero.ribbon">DevOps Engineer @ <strong>PT Link Net Tbk</strong></span>
                         <span class="status-sep">&bull;</span>
                         <span class="status-loc"><i class="fa-solid fa-location-dot"></i> Jakarta, ID</span>
                     </div>
 
-                    <h1 class="hero-title">
-                         keeping multi-cloud <span class="text-gradient">Kubernetes</span> &amp; <span class="text-gradient-emerald">CI/CD pipelines</span> resilient at scale.
+                    <h1 class="hero-title" data-i18n-html="hero.title">
+                        Keeping multi-cloud <span class="text-gradient">Kubernetes</span> &amp; <span class="text-gradient-emerald">CI/CD pipelines</span> resilient at scale.
                     </h1>
 
-                    <p class="hero-description">
+                    <p class="hero-description" data-i18n-html="hero.desc">
                         Hi, I'm <strong>Faqihna Fiddin Alfarizi</strong>. Day-to-day, I orchestrate production workloads across <strong>AWS (EKS)</strong>, <strong>Google Cloud (GKE)</strong>, and <strong>Tencent Cloud (TKE)</strong>—automating zero-downtime releases, securing secrets with <strong>Azure Key Vault</strong>, and building real-time observability with <strong>Prometheus &amp; Grafana</strong>.
                     </p>
 
@@ -168,11 +187,11 @@
                     <div class="hero-actions">
                         <a href="#projects" class="btn btn-primary">
                             <i class="fa-solid fa-layer-group"></i>
-                            <span>Explore Blueprints</span>
+                            <span data-i18n="hero.btn.explore">Explore Blueprints</span>
                         </a>
                         <a href="cv.html" target="_blank" class="btn btn-secondary">
                             <i class="fa-regular fa-file-lines"></i>
-                            <span>Interactive CV / PDF</span>
+                            <span data-i18n="hero.btn.cv">Interactive CV / PDF</span>
                         </a>
                         <button class="btn btn-ghost" id="copyEmailHero" data-copy="faqihnafiddin12@gmail.com">
                             <i class="fa-regular fa-copy"></i>
@@ -199,7 +218,7 @@
                     <div class="control-plane-card">
                         <div class="cp-header">
                             <div class="cp-title-group">
-                                <span class="cp-live-badge"><span class="pulse-dot"></span> LIVE TOPOLOGY</span>
+                                <span class="cp-live-badge"><span class="pulse-dot"></span> <span data-i18n="cp.live">LIVE TOPOLOGY</span></span>
                                 <span class="cp-title">multi-cloud-mesh.yaml</span>
                             </div>
                             <div class="cp-cluster-tabs" id="clusterTabs">
@@ -221,7 +240,7 @@
                                 <div class="topo-node source-node">
                                     <div class="node-icon"><i class="devicon-azuredevops-plain"></i></div>
                                     <div class="node-info">
-                                        <span class="node-label">CI/CD Pipeline</span>
+                                        <span class="node-label" data-i18n="cp.cicd">CI/CD Pipeline</span>
                                         <span class="node-sub" id="topoPipeline">Azure DevOps &bull; GitLab</span>
                                     </div>
                                 </div>
@@ -231,7 +250,7 @@
                                 <div class="topo-node vault-node">
                                     <div class="node-icon"><i class="fa-solid fa-vault"></i></div>
                                     <div class="node-info">
-                                        <span class="node-label">Secret Store</span>
+                                        <span class="node-label" data-i18n="cp.secret">Secret Store</span>
                                         <span class="node-sub">Key Vault + ExtSecrets</span>
                                     </div>
                                 </div>
@@ -278,21 +297,21 @@
                                 <div class="cluster-metrics">
                                     <div class="metric-item">
                                         <div class="metric-top">
-                                            <span>CPU Requests</span>
+                                            <span data-i18n="cp.cpu">CPU Requests</span>
                                             <strong id="metricCpu">42%</strong>
                                         </div>
                                         <div class="metric-bar"><div class="metric-fill" id="barCpu" style="width: 42%;"></div></div>
                                     </div>
                                     <div class="metric-item">
                                         <div class="metric-top">
-                                            <span>Memory Alloc</span>
+                                            <span data-i18n="cp.mem">Memory Alloc</span>
                                             <strong id="metricMem">58%</strong>
                                         </div>
                                         <div class="metric-bar"><div class="metric-fill emerald" id="barMem" style="width: 58%;"></div></div>
                                     </div>
                                     <div class="metric-item">
                                         <div class="metric-top">
-                                            <span>Rollout Strategy</span>
+                                            <span data-i18n="cp.rollout">Rollout Strategy</span>
                                             <strong id="metricRollout">Zero-Downtime</strong>
                                         </div>
                                         <div class="metric-bar"><div class="metric-fill amber" style="width: 100%;"></div></div>
@@ -302,7 +321,7 @@
                         </div>
 
                         <div class="cp-footer">
-                            <span class="cp-cmd-hint"><i class="fa-solid fa-terminal"></i> Click cluster tabs above to inspect multi-cloud state</span>
+                            <span class="cp-cmd-hint"><i class="fa-solid fa-terminal"></i> <span data-i18n="cp.hint">Click cluster tabs above to inspect multi-cloud state</span></span>
                             <span class="cp-k8s-ver">Kubernetes v1.29</span>
                         </div>
                     </div>
@@ -315,9 +334,9 @@
              ================================================================= -->
         <section class="section-block" id="bento">
             <div class="section-heading reveal">
-                <div class="eyebrow"><i class="fa-solid fa-cubes"></i> CORE ARCHITECTURE &amp; CAPABILITIES</div>
-                <h2>Engineered for Reliability, Automation &amp; Visibility</h2>
-                <p>Interactive overview of my technical stack and daily DevOps workflows.</p>
+                <div class="eyebrow"><i class="fa-solid fa-cubes"></i> <span data-i18n="bento.eyebrow">CORE ARCHITECTURE &amp; CAPABILITIES</span></div>
+                <h2 data-i18n="bento.title">Engineered for Reliability, Automation &amp; Visibility</h2>
+                <p data-i18n="bento.sub">Interactive overview of my technical stack and daily DevOps workflows.</p>
             </div>
 
             <div class="bento-grid">
@@ -325,13 +344,13 @@
                 <div class="bento-card span-2 reveal">
                     <div class="bento-top">
                         <div>
-                            <span class="bento-badge blue"><i class="fa-solid fa-infinity"></i> CI/CD &amp; RELEASE AUTOMATION</span>
-                            <h3>Interactive Zero-Downtime Deployment Simulator</h3>
-                            <p>Test how I automate releases from Git commit to Kubernetes rolling update without dropping traffic.</p>
+                            <span class="bento-badge blue"><i class="fa-solid fa-infinity"></i> <span data-i18n="bento1.badge">CI/CD &amp; RELEASE AUTOMATION</span></span>
+                            <h3 data-i18n="bento1.title">Interactive Zero-Downtime Deployment Simulator</h3>
+                            <p data-i18n="bento1.desc">Test how I automate releases from Git commit to Kubernetes rolling update without dropping traffic.</p>
                         </div>
                         <button class="btn btn-sm btn-emerald" id="triggerDeployBtn">
                             <i class="fa-solid fa-play"></i>
-                            <span id="deployBtnText">Simulate Rollout</span>
+                            <span id="deployBtnText" data-i18n="bento1.btn">Simulate Rollout</span>
                         </button>
                     </div>
 
@@ -339,12 +358,12 @@
                         <div class="stage-step active" data-step="1">
                             <div class="stage-icon"><i class="devicon-git-plain"></i></div>
                             <div class="stage-label">1. Git &amp; GitLab</div>
-                            <div class="stage-meta">Commit &amp; Lint</div>
+                            <div class="stage-meta" data-i18n="bento1.s1">Commit &amp; Lint</div>
                         </div>
                         <div class="stage-arrow"><i class="fa-solid fa-chevron-right"></i></div>
                         <div class="stage-step" data-step="2">
                             <div class="stage-icon"><i class="devicon-docker-plain"></i></div>
-                            <div class="stage-label">2. Build Image</div>
+                            <div class="stage-label" data-i18n="bento1.s2.title">2. Build Image</div>
                             <div class="stage-meta">Docker Hub Push</div>
                         </div>
                         <div class="stage-arrow"><i class="fa-solid fa-chevron-right"></i></div>
@@ -362,22 +381,22 @@
                         <div class="stage-arrow"><i class="fa-solid fa-chevron-right"></i></div>
                         <div class="stage-step" data-step="5">
                             <div class="stage-icon"><i class="devicon-prometheus-original"></i></div>
-                            <div class="stage-label">5. Verify Health</div>
+                            <div class="stage-label" data-i18n="bento1.s5.title">5. Verify Health</div>
                             <div class="stage-meta">Prometheus Probes</div>
                         </div>
                     </div>
 
                     <div class="deploy-log-bar" id="deployLogBar">
                         <span class="log-prefix">[AZURE-DEVOPS]</span>
-                        <span id="deployLogText">Pipeline ready. Click "Simulate Rollout" to execute zero-downtime deployment across pods.</span>
+                        <span id="deployLogText" data-i18n="bento1.log.ready">Pipeline ready. Click "Simulate Rollout" to execute zero-downtime deployment across pods.</span>
                     </div>
                 </div>
 
                 <!-- Bento 2: Observability & Monitoring Telemetry -->
                 <div class="bento-card reveal delay-100">
-                    <span class="bento-badge emerald"><i class="fa-solid fa-chart-line"></i> OBSERVABILITY</span>
+                    <span class="bento-badge emerald"><i class="fa-solid fa-chart-line"></i> <span data-i18n="bento2.badge">OBSERVABILITY</span></span>
                     <h3>Prometheus &amp; Grafana</h3>
-                    <p>Proactive monitoring &amp; alerting so production issues are caught and fixed before impacting users.</p>
+                    <p data-i18n="bento2.desc">Proactive monitoring &amp; alerting so production issues are caught and fixed before impacting users.</p>
 
                     <div class="telemetry-mini-chart">
                         <div class="chart-header">
@@ -405,9 +424,9 @@
 
                 <!-- Bento 3: Secret Management & DevSecOps -->
                 <div class="bento-card reveal">
-                    <span class="bento-badge amber"><i class="fa-solid fa-shield-halved"></i> SECRET SECURITY</span>
-                    <h3>Zero-Trust Credentials</h3>
-                    <p>Eliminating hardcoded secrets by syncing <strong>Azure Key Vault</strong> directly to Kubernetes via <strong>External Secrets</strong>.</p>
+                    <span class="bento-badge amber"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="bento3.badge">SECRET SECURITY</span></span>
+                    <h3 data-i18n="bento3.title">Zero-Trust Credentials</h3>
+                    <p data-i18n-html="bento3.desc">Eliminating hardcoded secrets by syncing <strong>Azure Key Vault</strong> directly to Kubernetes via <strong>External Secrets</strong>.</p>
 
                     <div class="code-snippet">
 <pre><code><span class="c-key">apiVersion:</span> external-secrets.io/v1beta1
@@ -424,65 +443,65 @@
                 <div class="bento-card span-2 reveal delay-100">
                     <div class="bento-top">
                         <div>
-                            <span class="bento-badge purple"><i class="fa-solid fa-microchip"></i> TECHNICAL SKILLS MATRIX</span>
-                            <h3>Complete Cloud &amp; DevOps Stack</h3>
+                            <span class="bento-badge purple"><i class="fa-solid fa-microchip"></i> <span data-i18n="bento4.badge">TECHNICAL SKILLS MATRIX</span></span>
+                            <h3 data-i18n="bento4.title">Complete Cloud &amp; DevOps Stack</h3>
                         </div>
                         <div class="skill-filter-pills" id="skillFilterPills">
-                            <button class="s-pill active" data-sfilter="all">All Stack</button>
-                            <button class="s-pill" data-sfilter="cloud">Cloud &amp; K8s</button>
-                            <button class="s-pill" data-sfilter="cicd">CI/CD &amp; Sec</button>
-                            <button class="s-pill" data-sfilter="ops">OS &amp; Monitoring</button>
+                            <button class="s-pill active" data-sfilter="all" data-i18n="bento4.f.all">All Stack</button>
+                            <button class="s-pill" data-sfilter="cloud" data-i18n="bento4.f.cloud">Cloud &amp; K8s</button>
+                            <button class="s-pill" data-sfilter="cicd" data-i18n="bento4.f.cicd">CI/CD &amp; Sec</button>
+                            <button class="s-pill" data-sfilter="ops" data-i18n="bento4.f.ops">OS &amp; Monitoring</button>
                         </div>
                     </div>
 
                     <div class="arsenal-grid" id="arsenalGrid">
                         <div class="arsenal-chip" data-scat="cloud">
                             <i class="devicon-googlecloud-plain colored"></i>
-                            <div><strong>Google Cloud (GKE)</strong><span>Managed Kubernetes</span></div>
+                            <div><strong>Google Cloud (GKE)</strong><span data-i18n="stack.gke">Managed Kubernetes</span></div>
                         </div>
                         <div class="arsenal-chip" data-scat="cloud">
                             <i class="devicon-amazonwebservices-plain-wordmark colored"></i>
-                            <div><strong>AWS (EKS, EC2, IAM, VPC)</strong><span>Cloud Infrastructure</span></div>
+                            <div><strong>AWS (EKS, EC2, IAM, VPC)</strong><span data-i18n="stack.aws">Cloud Infrastructure</span></div>
                         </div>
                         <div class="arsenal-chip" data-scat="cloud">
                             <i class="fa-solid fa-cloud" style="color: #00a4ff;"></i>
-                            <div><strong>Tencent Cloud (TKE)</strong><span>Production Clusters</span></div>
+                            <div><strong>Tencent Cloud (TKE)</strong><span data-i18n="stack.tke">Production Clusters</span></div>
                         </div>
                         <div class="arsenal-chip" data-scat="cloud">
                             <i class="devicon-kubernetes-plain colored"></i>
-                            <div><strong>Kubernetes (EKS, GKE, K3s)</strong><span>Deployments, Ingress, Services</span></div>
+                            <div><strong>Kubernetes (EKS, GKE, K3s)</strong><span data-i18n="stack.k8s">Deployments, Ingress, Services</span></div>
                         </div>
                         <div class="arsenal-chip" data-scat="cloud">
                             <i class="devicon-docker-plain colored"></i>
-                            <div><strong>Docker &amp; Compose</strong><span>Containerization</span></div>
+                            <div><strong>Docker &amp; Compose</strong><span data-i18n="stack.docker">Containerization</span></div>
                         </div>
                         <div class="arsenal-chip" data-scat="cicd">
                             <i class="devicon-azuredevops-plain colored"></i>
-                            <div><strong>Azure DevOps Pipeline</strong><span>Automated Releases</span></div>
+                            <div><strong>Azure DevOps Pipeline</strong><span data-i18n="stack.ado">Automated Releases</span></div>
                         </div>
                         <div class="arsenal-chip" data-scat="cicd">
                             <i class="devicon-gitlab-plain colored"></i>
-                            <div><strong>Git &amp; GitLab CI/CD</strong><span>Version Control &amp; CI</span></div>
+                            <div><strong>Git &amp; GitLab CI/CD</strong><span data-i18n="stack.git">Version Control &amp; CI</span></div>
                         </div>
                         <div class="arsenal-chip" data-scat="cicd">
                             <i class="fa-solid fa-vault" style="color: #f59e0b;"></i>
-                            <div><strong>Azure Key Vault &amp; ExtSecrets</strong><span>Secret Management</span></div>
+                            <div><strong>Azure Key Vault &amp; ExtSecrets</strong><span data-i18n="stack.kv">Secret Management</span></div>
                         </div>
                         <div class="arsenal-chip" data-scat="cicd">
                             <i class="devicon-githubactions-plain colored"></i>
-                            <div><strong>GitHub Actions &amp; Docker Hub</strong><span>Registry &amp; Workflows</span></div>
+                            <div><strong>GitHub Actions &amp; Docker Hub</strong><span data-i18n="stack.gha">Registry &amp; Workflows</span></div>
                         </div>
                         <div class="arsenal-chip" data-scat="ops">
                             <i class="devicon-prometheus-original colored"></i>
-                            <div><strong>Prometheus</strong><span>Metrics Collection</span></div>
+                            <div><strong>Prometheus</strong><span data-i18n="stack.prom">Metrics Collection</span></div>
                         </div>
                         <div class="arsenal-chip" data-scat="ops">
                             <i class="devicon-grafana-plain colored"></i>
-                            <div><strong>Grafana</strong><span>Observability Dashboards</span></div>
+                            <div><strong>Grafana</strong><span data-i18n="stack.graf">Observability Dashboards</span></div>
                         </div>
                         <div class="arsenal-chip" data-scat="ops">
                             <i class="devicon-ubuntu-plain colored"></i>
-                            <div><strong>Linux &amp; Ubuntu</strong><span>Server Administration</span></div>
+                            <div><strong>Linux &amp; Ubuntu</strong><span data-i18n="stack.linux">Server Administration</span></div>
                         </div>
                     </div>
                 </div>
@@ -494,9 +513,9 @@
              ================================================================= -->
         <section class="section-block" id="experience">
             <div class="section-heading reveal">
-                <div class="eyebrow"><i class="fa-solid fa-terminal"></i> WORK EXPERIENCE &amp; RUNBOOKS</div>
-                <h2>Production Infrastructure Operations</h2>
-                <p>Real-world enterprise experience maintaining multi-cloud Kubernetes stability and automated delivery.</p>
+                <div class="eyebrow"><i class="fa-solid fa-terminal"></i> <span data-i18n="exp.eyebrow">WORK EXPERIENCE &amp; RUNBOOKS</span></div>
+                <h2 data-i18n="exp.title">Production Infrastructure Operations</h2>
+                <p data-i18n="exp.sub">Real-world enterprise experience maintaining multi-cloud Kubernetes stability and automated delivery.</p>
             </div>
 
             <div class="exp-showcase reveal">
@@ -513,20 +532,20 @@
                     <div class="exp-role-meta">
                         <div class="role-title">DevOps Engineer</div>
                         <div class="role-period">
-                            <span class="pulse-dot"></span> Oktober 2026 – Present
+                            <span class="pulse-dot"></span> <span data-i18n="exp.period">October 2026 – Present</span>
                         </div>
                     </div>
 
-                    <p class="exp-summary-note">
+                    <p class="exp-summary-note" data-i18n="exp.note">
                         Responsible for day-to-day multi-cloud Kubernetes reliability across GKE, EKS, and TKE, CI/CD release automation, and rapid production incident resolution.
                     </p>
 
                     <div class="exp-view-switcher">
                         <button class="exp-tab-btn active" data-exptab="responsibilities">
-                            <i class="fa-solid fa-list-check"></i> Key Impacts (6)
+                            <i class="fa-solid fa-list-check"></i> <span data-i18n="exp.tab.impacts">Key Impacts (6)</span>
                         </button>
                         <button class="exp-tab-btn" data-exptab="runbooks">
-                            <i class="fa-solid fa-book-medical"></i> Incident Runbooks
+                            <i class="fa-solid fa-book-medical"></i> <span data-i18n="exp.tab.runbooks">Incident Runbooks</span>
                         </button>
                     </div>
                 </div>
@@ -538,33 +557,33 @@
                         <div class="impact-grid">
                             <div class="impact-card">
                                 <div class="impact-num">01</div>
-                                <h4>Rapid Pod &amp; Container Troubleshooting</h4>
-                                <p>Quickly resolved live pod and container errors in production, including image pull failures (<code>ImagePullBackOff</code>) and unexpected application crashes (<code>CrashLoopBackOff</code>).</p>
+                                <h4 data-i18n="exp.i1.title">Rapid Pod &amp; Container Troubleshooting</h4>
+                                <p data-i18n-html="exp.i1.desc">Quickly resolved live pod and container errors in production, including image pull failures (<code>ImagePullBackOff</code>) and unexpected application crashes (<code>CrashLoopBackOff</code>).</p>
                             </div>
                             <div class="impact-card">
                                 <div class="impact-num">02</div>
-                                <h4>Azure DevOps CI/CD Automation</h4>
-                                <p>Maintained and optimized Azure DevOps CI/CD pipelines to ensure smooth, repeatable, and automated application deployments.</p>
+                                <h4 data-i18n="exp.i2.title">Azure DevOps CI/CD Automation</h4>
+                                <p data-i18n="exp.i2.desc">Maintained and optimized Azure DevOps CI/CD pipelines to ensure smooth, repeatable, and automated application deployments.</p>
                             </div>
                             <div class="impact-card">
                                 <div class="impact-num">03</div>
-                                <h4>Zero-Trust Secret Management</h4>
-                                <p>Secured sensitive credentials, certificates, and API keys using <strong>Azure Key Vault</strong> integrated with Kubernetes <strong>External Secrets</strong>.</p>
+                                <h4 data-i18n="exp.i3.title">Zero-Trust Secret Management</h4>
+                                <p data-i18n-html="exp.i3.desc">Secured sensitive credentials, certificates, and API keys using <strong>Azure Key Vault</strong> integrated with Kubernetes <strong>External Secrets</strong>.</p>
                             </div>
                             <div class="impact-card">
                                 <div class="impact-num">04</div>
-                                <h4>Multi-Cloud Cluster High Availability</h4>
-                                <p>Ensured high availability and operational stability for production Kubernetes clusters across <strong>GKE</strong>, <strong>EKS</strong>, and <strong>TKE</strong>.</p>
+                                <h4 data-i18n="exp.i4.title">Multi-Cloud Cluster High Availability</h4>
+                                <p data-i18n-html="exp.i4.desc">Ensured high availability and operational stability for production Kubernetes clusters across <strong>GKE</strong>, <strong>EKS</strong>, and <strong>TKE</strong>.</p>
                             </div>
                             <div class="impact-card">
                                 <div class="impact-num">05</div>
-                                <h4>Zero-Downtime Maintenance</h4>
-                                <p>Handled daily operational maintenance, including zero-downtime rolling updates, deployment validation, and controlled pod restarts.</p>
+                                <h4 data-i18n="exp.i5.title">Zero-Downtime Maintenance</h4>
+                                <p data-i18n="exp.i5.desc">Handled daily operational maintenance, including zero-downtime rolling updates, deployment validation, and controlled pod restarts.</p>
                             </div>
                             <div class="impact-card">
                                 <div class="impact-num">06</div>
-                                <h4>Core Kubernetes Resource Governance</h4>
-                                <p>Managed core Kubernetes resources including <strong>Deployments</strong>, <strong>Services</strong>, <strong>Ingress</strong>, <strong>ConfigMaps</strong>, and <strong>Secrets</strong>.</p>
+                                <h4 data-i18n="exp.i6.title">Core Kubernetes Resource Governance</h4>
+                                <p data-i18n-html="exp.i6.desc">Managed core Kubernetes resources including <strong>Deployments</strong>, <strong>Services</strong>, <strong>Ingress</strong>, <strong>ConfigMaps</strong>, and <strong>Secrets</strong>.</p>
                             </div>
                         </div>
                     </div>
@@ -575,24 +594,24 @@
                             <div class="runbook-item">
                                 <div class="runbook-header">
                                     <span class="rb-severity high">RUNBOOK #01</span>
-                                    <h4>Resolving ImagePullBackOff &amp; CrashLoopBackOff in Production</h4>
+                                    <h4 data-i18n="rb1.title">Resolving ImagePullBackOff &amp; CrashLoopBackOff in Production</h4>
                                 </div>
                                 <div class="runbook-steps">
-                                    <div class="rb-step"><code>1. Inspect</code><span><code>kubectl describe pod</code> &amp; <code>kubectl logs --previous</code> to isolate exit codes or registry auth errors.</span></div>
-                                    <div class="rb-step"><code>2. Remediate</code><span>Verify image tag in Docker Hub/Registry, validate <code>imagePullSecrets</code> &amp; ConfigMap/Secret mounts.</span></div>
-                                    <div class="rb-step"><code>3. Rollout</code><span>Trigger <code>kubectl rollout restart deployment</code> and verify readiness probes pass with zero traffic drop.</span></div>
+                                    <div class="rb-step"><code>1. Inspect</code><span data-i18n-html="rb1.s1"><code>kubectl describe pod</code> &amp; <code>kubectl logs --previous</code> to isolate exit codes or registry auth errors.</span></div>
+                                    <div class="rb-step"><code>2. Remediate</code><span data-i18n-html="rb1.s2">Verify image tag in Docker Hub/Registry, validate <code>imagePullSecrets</code> &amp; ConfigMap/Secret mounts.</span></div>
+                                    <div class="rb-step"><code>3. Rollout</code><span data-i18n-html="rb1.s3">Trigger <code>kubectl rollout restart deployment</code> and verify readiness probes pass with zero traffic drop.</span></div>
                                 </div>
                             </div>
 
                             <div class="runbook-item">
                                 <div class="runbook-header">
                                     <span class="rb-severity med">RUNBOOK #02</span>
-                                    <h4>Secret Rotation via Azure Key Vault &amp; External Secrets</h4>
+                                    <h4 data-i18n="rb2.title">Secret Rotation via Azure Key Vault &amp; External Secrets</h4>
                                 </div>
                                 <div class="runbook-steps">
-                                    <div class="rb-step"><code>1. Vault Update</code><span>Rotate credential version inside Azure Key Vault with RBAC access policy.</span></div>
-                                    <div class="rb-step"><code>2. Sync</code><span>External Secrets Operator reconciles <code>ExternalSecret</code> CRD and updates native K8s <code>Secret</code>.</span></div>
-                                    <div class="rb-step"><code>3. Validate</code><span>Perform rolling update and confirm zero-downtime connectivity across GKE, EKS, and TKE pods.</span></div>
+                                    <div class="rb-step"><code>1. Vault Update</code><span data-i18n="rb2.s1">Rotate credential version inside Azure Key Vault with RBAC access policy.</span></div>
+                                    <div class="rb-step"><code>2. Sync</code><span data-i18n-html="rb2.s2">External Secrets Operator reconciles <code>ExternalSecret</code> CRD and updates native K8s <code>Secret</code>.</span></div>
+                                    <div class="rb-step"><code>3. Validate</code><span data-i18n="rb2.s3">Perform rolling update and confirm zero-downtime connectivity across GKE, EKS, and TKE pods.</span></div>
                                 </div>
                             </div>
                         </div>
@@ -606,9 +625,9 @@
              ================================================================= -->
         <section class="section-block" id="projects">
             <div class="section-heading reveal">
-                <div class="eyebrow"><i class="fa-solid fa-diagram-project"></i> INFRASTRUCTURE BLUEPRINTS &amp; PROJECTS</div>
-                <h2>Hands-On Cloud &amp; Observability Projects</h2>
-                <p>Click <strong>"Inspect Architecture"</strong> on any project to view the underlying system flow.</p>
+                <div class="eyebrow"><i class="fa-solid fa-diagram-project"></i> <span data-i18n="proj.eyebrow">INFRASTRUCTURE BLUEPRINTS &amp; PROJECTS</span></div>
+                <h2 data-i18n="proj.title">Hands-On Cloud &amp; Observability Projects</h2>
+                <p data-i18n-html="proj.sub">Click <strong>"Inspect Architecture"</strong> on any project to view the underlying system flow.</p>
             </div>
 
             <div class="projects-grid">
@@ -617,24 +636,24 @@
                     <div class="bp-top-bar">
                         <span class="bp-category">AWS EC2 &bull; CI/CD &bull; OBSERVABILITY</span>
                         <a href="https://github.com/faqihnafiddin/cloud-final-project" target="_blank" rel="noreferrer" class="bp-github-btn" title="View Repository on GitHub">
-                            <i class="fa-brands fa-github"></i> Source Code
+                            <i class="fa-brands fa-github"></i> <span data-i18n="proj.source">Source Code</span>
                         </a>
                     </div>
 
-                    <h3 class="bp-title">Cloud Full-Stack Deployment &amp; Monitoring Stack on AWS</h3>
-                    <p class="bp-desc">
+                    <h3 class="bp-title" data-i18n="proj1.title">Cloud Full-Stack Deployment &amp; Monitoring Stack on AWS</h3>
+                    <p class="bp-desc" data-i18n-html="proj1.desc">
                         End-to-end containerized deployment of a 3-tier application (React Vite, Express REST API, MongoDB) on <strong>AWS EC2</strong> using <strong>Docker Compose</strong>, automated via <strong>GitHub Actions CI/CD</strong>, and monitored with <strong>Prometheus &amp; Grafana</strong>.
                     </p>
 
                     <ul class="bp-highlights">
-                        <li>Automated SSH deployment workflow via GitHub Actions on every push to <code>main</code>.</li>
-                        <li>Configured <strong>Node Exporter</strong> + <strong>Prometheus</strong> scraping CPU, memory, disk, and network metrics.</li>
-                        <li>Visualized real-time host telemetry on <strong>Grafana</strong> (Dashboard ID 1860).</li>
+                        <li data-i18n-html="proj1.h1">Automated SSH deployment workflow via GitHub Actions on every push to <code>main</code>.</li>
+                        <li data-i18n-html="proj1.h2">Configured <strong>Node Exporter</strong> + <strong>Prometheus</strong> scraping CPU, memory, disk, and network metrics.</li>
+                        <li data-i18n-html="proj1.h3">Visualized real-time host telemetry on <strong>Grafana</strong> (Dashboard ID 1860).</li>
                     </ul>
 
                     <!-- Toggleable Architecture Blueprint -->
                     <div class="bp-arch-drawer" id="arch-1">
-                        <div class="arch-diagram-label">SYSTEM ARCHITECTURE FLOW</div>
+                        <div class="arch-diagram-label" data-i18n="proj.arch.label">SYSTEM ARCHITECTURE FLOW</div>
                         <div class="arch-flow">
                             <span class="arch-node">GitHub Actions</span>
                             <i class="fa-solid fa-arrow-right"></i>
@@ -655,7 +674,7 @@
                             <span>Grafana</span>
                         </div>
                         <button class="bp-inspect-btn" data-target="arch-1">
-                            <i class="fa-solid fa-sitemap"></i> <span>Inspect Architecture</span>
+                            <i class="fa-solid fa-sitemap"></i> <span data-i18n="proj.inspect">Inspect Architecture</span>
                         </button>
                     </div>
                 </article>
@@ -665,24 +684,24 @@
                     <div class="bp-top-bar">
                         <span class="bp-category">DOCKER &bull; TIME-SERIES &bull; TELEMETRY</span>
                         <a href="https://github.com/faqihnafiddin/Tugasminiproject3" target="_blank" rel="noreferrer" class="bp-github-btn" title="View Repository on GitHub">
-                            <i class="fa-brands fa-github"></i> Source Code
+                            <i class="fa-brands fa-github"></i> <span data-i18n="proj.source">Source Code</span>
                         </a>
                     </div>
 
-                    <h3 class="bp-title">Containerized Telemetry &amp; Time-Series Monitoring Pipeline</h3>
-                    <p class="bp-desc">
+                    <h3 class="bp-title" data-i18n="proj2.title">Containerized Telemetry &amp; Time-Series Monitoring Pipeline</h3>
+                    <p class="bp-desc" data-i18n-html="proj2.desc">
                         Multi-container real-time telemetry ingestion and observability pipeline orchestrated with <strong>Docker Compose</strong>, streaming metrics through <strong>MQTT</strong> into <strong>InfluxDB 2.7</strong> and <strong>Grafana</strong>.
                     </p>
 
                     <ul class="bp-highlights">
-                        <li>Orchestrated isolated services for <code>eclipse-mosquitto</code>, Python simulator/ingestion, <code>influxdb:2.7</code>, and <code>grafana</code>.</li>
-                        <li>Configured persistent Docker volumes (<code>influx-data</code>) to guarantee time-series durability across container restarts.</li>
-                        <li>Built real-time Grafana telemetry panels for anomaly and threshold tracking.</li>
+                        <li data-i18n-html="proj2.h1">Orchestrated isolated services for <code>eclipse-mosquitto</code>, Python simulator/ingestion, <code>influxdb:2.7</code>, and <code>grafana</code>.</li>
+                        <li data-i18n-html="proj2.h2">Configured persistent Docker volumes (<code>influx-data</code>) to guarantee time-series durability across container restarts.</li>
+                        <li data-i18n="proj2.h3">Built real-time Grafana telemetry panels for anomaly and threshold tracking.</li>
                     </ul>
 
                     <!-- Toggleable Architecture Blueprint -->
                     <div class="bp-arch-drawer" id="arch-2">
-                        <div class="arch-diagram-label">TELEMETRY PIPELINE FLOW</div>
+                        <div class="arch-diagram-label" data-i18n="proj.arch.label">SYSTEM ARCHITECTURE FLOW</div>
                         <div class="arch-flow">
                             <span class="arch-node">Python Simulator</span>
                             <i class="fa-solid fa-arrow-right"></i>
@@ -703,7 +722,7 @@
                             <span>Python</span>
                         </div>
                         <button class="bp-inspect-btn" data-target="arch-2">
-                            <i class="fa-solid fa-sitemap"></i> <span>Inspect Architecture</span>
+                            <i class="fa-solid fa-sitemap"></i> <span data-i18n="proj.inspect">Inspect Architecture</span>
                         </button>
                     </div>
                 </article>
@@ -715,8 +734,8 @@
              ================================================================= -->
         <section class="section-block" id="credentials">
             <div class="section-heading reveal">
-                <div class="eyebrow"><i class="fa-solid fa-graduation-cap"></i> EDUCATION &amp; CREDENTIALS</div>
-                <h2>Academic Foundation &amp; Cloud Certifications</h2>
+                <div class="eyebrow"><i class="fa-solid fa-graduation-cap"></i> <span data-i18n="cred.eyebrow">EDUCATION &amp; CREDENTIALS</span></div>
+                <h2 data-i18n="cred.title">Academic Foundation &amp; Cloud Certifications</h2>
             </div>
 
             <div class="credentials-grid">
@@ -725,14 +744,14 @@
                     <div class="cred-card-header">
                         <div class="cred-icon blue"><i class="fa-solid fa-building-columns"></i></div>
                         <div>
-                            <span class="cred-type">ACADEMIC DEGREE</span>
+                            <span class="cred-type" data-i18n="cred.edu.type">ACADEMIC DEGREE</span>
                             <h3>Universitas Bina Sarana Informatika</h3>
                         </div>
                     </div>
                     <div class="cred-body">
-                        <div class="cred-degree">Associate Degree in Information Systems</div>
+                        <div class="cred-degree" data-i18n="cred.edu.deg">Associate Degree in Information Systems</div>
                         <div class="cred-meta">
-                            <span><i class="fa-regular fa-calendar"></i> August 2018 – November 2021</span>
+                            <span><i class="fa-regular fa-calendar"></i> <span data-i18n="cred.edu.date">August 2018 – November 2021</span></span>
                             <span><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</span>
                         </div>
                         <div class="gpa-pill">
@@ -744,10 +763,10 @@
                 <!-- Bootcamps & Training -->
                 <div class="cred-card reveal delay-100">
                     <div class="cred-card-header">
-                        <div class="cred-icon emerald"><i class="fa-solid fa-cloud-Showers-heavy fa-cloud-bolt"></i></div>
+                        <div class="cred-icon emerald"><i class="fa-solid fa-cloud-bolt"></i></div>
                         <div>
-                            <span class="cred-type">INTENSIVE TRAINING PROGRAMS</span>
-                            <h3>Cloud &amp; AWS Bootcamps</h3>
+                            <span class="cred-type" data-i18n="cred.boot.type">INTENSIVE TRAINING PROGRAMS</span>
+                            <h3 data-i18n="cred.boot.title">Cloud &amp; AWS Bootcamps</h3>
                         </div>
                     </div>
                     <div class="cred-body">
@@ -773,8 +792,8 @@
                     <div class="cred-card-header">
                         <div class="cred-icon amber"><i class="fa-solid fa-award"></i></div>
                         <div>
-                            <span class="cred-type">VERIFIED CREDENTIALS</span>
-                            <h3>Certifications &amp; Badges</h3>
+                            <span class="cred-type" data-i18n="cred.cert.type">VERIFIED CREDENTIALS</span>
+                            <h3 data-i18n="cred.cert.title">Certifications &amp; Badges</h3>
                         </div>
                     </div>
                     <div class="cred-body">
@@ -804,13 +823,13 @@
             <div class="cta-banner reveal">
                 <div class="cta-content">
                     <div class="cta-interests">
-                        <span>OPEN FOR ROLES:</span>
+                        <span data-i18n="cta.open">OPEN FOR ROLES:</span>
                         <span class="role-chip">Cloud Engineer</span>
                         <span class="role-chip">DevOps Engineer</span>
                         <span class="role-chip">Junior DevOps Engineer</span>
                     </div>
-                    <h2>Ready to scale &amp; secure your cloud infrastructure?</h2>
-                    <p>
+                    <h2 data-i18n="cta.title">Ready to scale &amp; secure your cloud infrastructure?</h2>
+                    <p data-i18n="cta.desc">
                         Let's discuss how I can help your team manage multi-cloud Kubernetes clusters, streamline CI/CD pipelines, and maintain 99.9%+ observability.
                     </p>
                 </div>
@@ -818,7 +837,7 @@
                 <div class="cta-actions">
                     <a href="mailto:faqihnafiddin12@gmail.com" class="btn btn-primary">
                         <i class="fa-solid fa-paper-plane"></i>
-                        <span>Email Me</span>
+                        <span data-i18n="cta.btn.email">Email Me</span>
                     </a>
                     <a href="https://wa.me/628976802353" target="_blank" rel="noreferrer" class="btn btn-emerald">
                         <i class="fa-brands fa-whatsapp"></i>
@@ -830,7 +849,7 @@
                     </a>
                     <a href="cv.html" target="_blank" class="btn btn-secondary">
                         <i class="fa-solid fa-print"></i>
-                        <span>Print / Download CV</span>
+                        <span data-i18n="cta.btn.cv">Print / Download CV</span>
                     </a>
                 </div>
             </div>
@@ -846,7 +865,7 @@
             </div>
             <div class="footer-right">
                 <span class="telemetry-status">
-                    <span class="pulse-dot"></span> Control Plane Operational
+                    <span class="pulse-dot"></span> <span data-i18n="footer.status">Control Plane Operational</span>
                 </span>
                 <a href="https://github.com/faqihnafiddin" target="_blank" rel="noreferrer">GitHub</a>
                 <a href="https://linkedin.com/in/faqihnafiddinalfarizi" target="_blank" rel="noreferrer">LinkedIn</a>

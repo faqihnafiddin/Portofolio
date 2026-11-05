@@ -445,6 +445,69 @@ html[data-theme="light"] .mesh-blob {
     border: 1px solid var(--border-subtle);
 }
 
+/* Custom Cloud-Console Segmented Dual-Language Switcher (EN / ID) */
+.lang-switch-pill {
+    position: relative;
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    padding: 3px;
+    height: 34px;
+    min-width: 78px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+    user-select: none;
+    transition: border-color 0.25s ease;
+}
+
+.lang-switch-pill:hover {
+    border-color: var(--k8s-blue);
+}
+
+.lang-glider {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    width: calc(50% - 3px);
+    background: linear-gradient(135deg, var(--k8s-blue), var(--cloud-purple));
+    border-radius: 999px;
+    box-shadow: 0 2px 10px var(--k8s-blue-glow);
+    transition: transform 0.28s var(--ease-out);
+    z-index: 0;
+}
+
+html[data-lang="id"] .lang-glider {
+    transform: translateX(100%);
+    background: linear-gradient(135deg, var(--telemetry-emerald), var(--k8s-blue));
+    box-shadow: 0 2px 10px var(--emerald-glow);
+}
+
+.lang-opt {
+    position: relative;
+    z-index: 1;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0 9px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.lang-opt.active {
+    color: #ffffff;
+}
+
 .icon-btn {
     width: 34px;
     height: 34px;
